@@ -1,0 +1,19 @@
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server->browser: HTTP status code 302
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server->browser: HTTP-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server->browser: main.js
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server->browser: favicon.ico
+
+note over browser:  browser executes js code that requests data from server
+end note over browser
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: [{content: "", date: "2022-01-25T15:24:30.372Z"}, {content: "hola", date: "2022-01-25T15:24:34.418Z"},…]
+
+note over server: Server executes code to fulfill the POST request. Server accesses date from the POST request through req.body and creates a new object that is added to the notes array.
+end note over server

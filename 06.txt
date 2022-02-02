@@ -1,0 +1,20 @@
+note over browser:
+before the new note is submitted,
+the browser has opened the single page app
+and received javascript code from the server.
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over browser:
+When the user submits the form
+the browser executes event handler
+to submit the new note,
+adds the note to the note list,
+rerenders the note list,
+and sends the list to the server.
+end note over server
+
+note over server:
+server updates the note list.
+end note over server
+
+server->browser: Status Code 201.
